@@ -17,4 +17,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "vttp-mini-rest-resv-00" #Must be unique in Heroku
           heroku_email: ${{secrets.EMAIL}}
-          branch: "master"
