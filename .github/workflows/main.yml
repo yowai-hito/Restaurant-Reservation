@@ -31,9 +31,6 @@ jobs:
     - name: Run test
       run: mvn clean verify
 
-    - name: Build .jar file
-      run: mvn package && java -jar app/gs-spring-boot-docker-0.1.0.jar
-    
     - name: Generate coverage badge
       uses: cicirello/jacoco-badge-generator@v2
       with:
