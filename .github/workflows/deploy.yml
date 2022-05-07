@@ -1,6 +1,7 @@
 name: Heroku Deployment
 on:
-  workflow_dispatch:
+  release:
+    types: [published]
 
 env:
   SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
