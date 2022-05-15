@@ -7,6 +7,7 @@ use restaurant_reservation;
 create table restaurants (
   Restaurant_Name varchar(64) not null,
   table_count int,
+  currently_filled int,
 
   primary key(Restaurant_Name)
 );
@@ -37,11 +38,13 @@ create table restaurant_tables (
 
 create table reservations (
   Reservation_Id varchar(8),
+  restaurant_name varchar(64) not null,
   customer_name varchar(20) not NULL, 
   customer_pax INTEGER not NULL,
   reservation_datetime DATETIME,
   created_datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
   reservation_status BIT default 0,
 
-  primary key(Reservation_Id)
+  primary key(Reservation_Id),
+  constraint fk_restaurant_name foreign key (restaurant_name) references restaurants(Restaurant_Name)
 );
