@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var todayDate = new Date().toISOString().slice(0, 10);
+    var resvDate = document.querySelector("input[id='resv-date']");
+	  resvDate.setAttribute("min", todayDate);
+  </script>
+  <form>
+    
+    <div class="mb-3">
+      <label for="Name" class="col-sm-2 col-form-label">Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="Name" placeholder="Name">
+      </div>
+      <label for="Password" class="col-sm-2 col-form-label">Password:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="Password" placeholder="Password">
+      </div>
+      <label for="Reservation_Date" class="col-sm-2 col-form-label">Date:</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="resv-date" placeholder="Date of Reservation">
+      </div>
+      <label for="Reservation_Time" class="col-sm-2 col-form-label">Date:</label>
+      <!-- Issue: Step currently forces input at 1800s intervals but doesnt prevent people from choosing other times from inbuilt time selector -->
+      <div class="col-sm-10">
+        <input min = "0900" max = "2000" type="time" step="1800" class="form-control" id="resv-time" placeholder="Time of Reservation" >
+      </div>
+      
+  </form>
+</body>
+</html>
