@@ -11,6 +11,31 @@ public class Restaurant {
 
   private int tableCount=0;
 
+  private String description;
+
+  private String location;
+
+  public void setTableCount(int tableCount) {
+    this.tableCount = tableCount;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  
   public int getTableCount() {
     return tableCount;
   }
@@ -45,4 +70,11 @@ public class Restaurant {
     this.tableCount = this.tables.size();
   }
 
+  @Override
+  public String toString() {
+    return "Restaurant [description=" + description + ", location=" + location + ", name=" + name + ", tableCount="
+        + tableCount + ", tables=" + tables + "]";
+  }
+
+  
 }

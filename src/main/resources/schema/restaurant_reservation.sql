@@ -8,6 +8,8 @@ create table restaurants (
   Restaurant_Name varchar(64) not null,
   table_count int,
   currently_filled int,
+  rest_description varchar(500),
+  rest_location varchar(256),
 
   primary key(Restaurant_Name)
 );
@@ -41,7 +43,8 @@ create table reservations (
   restaurant_name varchar(64) not null,
   customer_name varchar(20) not NULL, 
   customer_pax INTEGER not NULL,
-  reservation_datetime DATETIME,
+  reservation_date DATE not NULL,
+  reservation_time TIME NOT NULL,
   created_datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
   reservation_status BIT default 0,
 
