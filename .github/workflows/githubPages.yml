@@ -20,7 +20,8 @@ jobs:
         uses: stCarolas/setup-maven@v4.3
         with:
           maven-version: '3.8.4'
-
+      - name: Create badges dir if necessary
+        run: mkdir -p build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
