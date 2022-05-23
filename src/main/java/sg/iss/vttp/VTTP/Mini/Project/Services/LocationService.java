@@ -20,7 +20,7 @@ public class LocationService {
     
     RestTemplate template = new RestTemplate();
 
-    String PSTACK_API_KEY = "5d93ad21dd389367dca397ca5d7d7ab2";
+    String PSTACK_API_KEY = "";
     String uri = "http://api.positionstack.com/v1/forward";
     //Testing
     // String addr = "Tampines Mall";
