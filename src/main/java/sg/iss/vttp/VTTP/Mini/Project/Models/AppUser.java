@@ -1,98 +1,82 @@
 package sg.iss.vttp.VTTP.Mini.Project.Models;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class AppUser implements UserDetails{
+public class AppUser implements UserDetails {
 
-  private boolean accountType = false;
-  private String id;
-  private String restaurant = null;
-  private String username;
-  private String password;
-  private boolean accountNonExpired = true;
-  private boolean accountNonLocked = true;
-  private boolean credentialsNonExpired = true;
-  private boolean enabled = true;
-  private Collection<? extends GrantedAuthority> authorities = null;
+  private final List<? extends GrantedAuthority> grantedAuthorities;
+  private final String username;
+  private final String password;
+  private final boolean isAccountNonExpired;
+  private final boolean isAccountNonLocked;
+  private final boolean isCredentialsNonExpired;
+  private final boolean isEnabled;
 
-  
-
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    return authorities;
-  }
-
-  public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-    this.authorities = authorities;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
+  public AppUser(List<? extends GrantedAuthority> grantedAuthorities, String username, String password) {
+    this.grantedAuthorities = grantedAuthorities;
     this.username = username;
+    this.password = password;
+    this.isAccountNonExpired = true;
+    this.isAccountNonLocked = true;
+    this.isCredentialsNonExpired = true;
+    this.isEnabled = true;
   }
 
+  public AppUser(List<? extends GrantedAuthority> grantedAuthorities, String username, String password,
+      boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
+    this.grantedAuthorities = grantedAuthorities;
+    this.username = username;
+    this.password = password;
+    this.isAccountNonExpired = isAccountNonExpired;
+    this.isAccountNonLocked = isAccountNonLocked;
+    this.isCredentialsNonExpired = isCredentialsNonExpired;
+    this.isEnabled = isEnabled;
+  }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return grantedAuthorities;
+  }
+
+  @Override
   public String getPassword() {
+    // TODO Auto-generated method stub
     return password;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  @Override
+  public String getUsername() {
+    // TODO Auto-generated method stub
+    return username;
   }
 
+  @Override
   public boolean isAccountNonExpired() {
-    return accountNonExpired;
+    // TODO Auto-generated method stub
+    return isAccountNonExpired;
   }
 
-  public void setAccountNonExpired(boolean accountNonExpired) {
-    this.accountNonExpired = accountNonExpired;
-  }
-
+  @Override
   public boolean isAccountNonLocked() {
-    return accountNonLocked;
+    // TODO Auto-generated method stub
+    return isAccountNonLocked;
   }
 
-  public void setAccountNonLocked(boolean accountNonLocked) {
-    this.accountNonLocked = accountNonLocked;
-  }
-
+  @Override
   public boolean isCredentialsNonExpired() {
-    return credentialsNonExpired;
+    // TODO Auto-generated method stub
+    return isCredentialsNonExpired;
   }
 
-  public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-    this.credentialsNonExpired = credentialsNonExpired;
-  }
-
+  @Override
   public boolean isEnabled() {
-    return enabled;
+    // TODO Auto-generated method stub
+    return isEnabled;
   }
 
-  public void setEnabled(boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  public boolean isAccountType() {
-    return accountType;
-  }
-  public void setAccountType(boolean accountType) {
-    this.accountType = accountType;
-  }
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
-  public String getRestaurant() {
-    return restaurant;
-  }
-  public void setRestaurant(String restaurant) {
-    this.restaurant = restaurant;
-  }
   
 }

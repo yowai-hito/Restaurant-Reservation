@@ -7,7 +7,7 @@ use restaurant_reservation;
 create table restaurants (
   Restaurant_Name varchar(64) not null,
   table_count int,
-  currently_filled int,
+  currently_filled int default 0,
   rest_description varchar(500),
   rest_location varchar(256),
 
@@ -17,8 +17,7 @@ create table users (
   Account_Id varchar(8),
   account_name varchar(64),
   account_password varchar(64),
-  -- False for ordering account and True for restaurant management account --
-  account_type BIT DEFAULT 0,
+  account_role VARCHAR(8),
   -- Field specifying restaurant managed by management account --
   account_restaurant varchar(64) default null,
 
@@ -49,5 +48,6 @@ create table reservations (
   reservation_status BIT default 0,
 
   primary key(Reservation_Id),
-  constraint fk_restaurant_name foreign key (restaurant_name) references restaurants(Restaurant_Name)
+  constraint fk_resv_restaurant_name foreign key (restaurant_name) references restaurants(Restaurant_Name)
 );
+
