@@ -57,16 +57,16 @@ class VttpMiniProjectApplicationTests {
 		RequestBuilder processingReq = MockMvcRequestBuilders.get("/processing");
 		mav.perform(processingReq);
 
-		RequestBuilder userLandingReq = MockMvcRequestBuilders.get("landing/user");
+		RequestBuilder userLandingReq = MockMvcRequestBuilders.get("/landing/user");
 		mav.perform(userLandingReq);
 
-		RequestBuilder managerLandingReq = MockMvcRequestBuilders.get("landing/manager");
+		RequestBuilder managerLandingReq = MockMvcRequestBuilders.get("/landing/manager");
 		mav.perform(managerLandingReq);
 
-		RequestBuilder userMakeResvReq = MockMvcRequestBuilders.get("landing/user/make");
+		RequestBuilder userMakeResvReq = MockMvcRequestBuilders.get("/landing/user/make");
 		mav.perform(userMakeResvReq);
 
-		RequestBuilder pandasRestPageReq = MockMvcRequestBuilders.get("landing/user/make/Pandas");
+		RequestBuilder pandasRestPageReq = MockMvcRequestBuilders.get("/landing/user/make/Pandas");
 		mav.perform(pandasRestPageReq);
 	}
 
