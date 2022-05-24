@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -41,7 +42,7 @@ class VttpMiniProjectApplicationTests {
 	MockMvc mav;
 	
 	@Test
-	void loginSequence() throws Exception {
+	void controllerTesting() throws Exception {
 		RequestBuilder initialRedirectReq = MockMvcRequestBuilders.get("/");
 		mav.perform(initialRedirectReq).andExpect(MockMvcResultMatchers.redirectedUrl("http://localhost/login"));
 		
@@ -52,6 +53,21 @@ class VttpMiniProjectApplicationTests {
 		.param("username", "World")
 		.param("password","Hello");
 		mav.perform(loginReq).andExpect(MockMvcResultMatchers.redirectedUrl("/processing"));
+
+		RequestBuilder processingReq = MockMvcRequestBuilders.get("/processing");
+		mav.perform(processingReq);
+
+		RequestBuilder userLandingReq = MockMvcRequestBuilders.get("landing/user");
+		mav.perform(userLandingReq);
+
+		RequestBuilder managerLandingReq = MockMvcRequestBuilders.get("landing/manager");
+		mav.perform(managerLandingReq);
+
+		RequestBuilder userMakeResvReq = MockMvcRequestBuilders.get("landing/user/make");
+		mav.perform(userMakeResvReq);
+
+		RequestBuilder pandasRestPageReq = MockMvcRequestBuilders.get("landing/user/make/Pandas");
+		mav.perform(pandasRestPageReq);
 	}
 
 	@Test
