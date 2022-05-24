@@ -1,4 +1,7 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">  
+  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -9,7 +12,8 @@
 </head>
 <body>
    <div class="container">
-    <form class="form-signin" method="post" action="/login">
+    <form class="form-signin" method="post" th:action="@{/login}">
+      <div th:if="${param.error}" class="alert alert-danger"> Invalid username and password.</div>
       <h2 class="form-signin-heading">Reservation App</h2>
       <p>
         <label for="username" class="sr-only">Username</label>

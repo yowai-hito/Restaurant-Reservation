@@ -1,19 +1,30 @@
 package sg.iss.vttp.VTTP.Mini.Project.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant implements Serializable {
   
-  private String name;
+  public String name;
 
-  private List<RestaurantTable> tables = new ArrayList<RestaurantTable>();
+  public List<RestaurantTable> tables = new ArrayList<RestaurantTable>();
 
-  private int tableCount=0;
+  public int tableCount=0;
 
-  private String description;
+  public int currentlyFilled=0;
 
-  private String location;
+  public String description;
+
+  public String location;
+
+  public int getCurrentlyFilled() {
+    return currentlyFilled;
+  }
+
+  public void setCurrentlyFilled(int currentlyFilled) {
+    this.currentlyFilled = currentlyFilled;
+  }
 
   public void setTableCount(int tableCount) {
     this.tableCount = tableCount;

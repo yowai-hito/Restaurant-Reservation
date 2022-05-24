@@ -14,4 +14,6 @@ public interface AppUserDao {
   "VALUES (?,?,?,?,?)";
 
   public Optional<AppUser> selectAppUserByUsername(String username);
+
+  // public Optional<AppUser> loginFunction(String username, String password);
 }

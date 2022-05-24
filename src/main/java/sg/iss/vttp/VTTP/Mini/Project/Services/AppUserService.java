@@ -19,9 +19,15 @@ public class AppUserService implements UserDetailsService {
     this.appUserDao = appUserDao;
   }
 
-  
+  // public UserDetails loginFunction(String username, String password) throws AccountNotFoundException {
+
+  //   return appUserDao.loginFunction(username, password)
+  //             .orElseThrow( () -> new AccountNotFoundException("Account does not exist"));
+  // }
+
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
     return appUserDao.selectAppUserByUsername(username)
               .orElseThrow( () -> new UsernameNotFoundException(String.format("Username %s not found", username)));
   }

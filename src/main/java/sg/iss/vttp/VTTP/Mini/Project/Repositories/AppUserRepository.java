@@ -19,20 +19,22 @@ public class AppUserRepository implements AppUserDao {
   @Autowired
   JdbcTemplate jdbc;
 
-  public Optional<AppUser> loginFunction(String username, String password) {
+  // @Override
+  // @Transactional
+  // public Optional<AppUser> loginFunction(String username, String password) {
     
-    return jdbc.query(SQL_USERS_LOGIN, 
-    (ResultSet rs) -> {
-        if (!rs.next()){return Optional.empty();}
-        AppUser user = new AppUser(
-          AppUserRole.getRole(rs.getString("account_role")),
-          rs.getString("account_name"),
-          rs.getString("account_password")
-        );
-        return Optional.of(user);
-    },
-    username,password);
-  }
+  //   return jdbc.query(SQL_USERS_LOGIN, 
+  //   (ResultSet rs) -> {
+  //       if (!rs.next()){return Optional.empty();}
+  //       AppUser user = new AppUser(
+  //         AppUserRole.getRole(rs.getString("account_role")),
+  //         rs.getString("account_name"),
+  //         rs.getString("account_password")
+  //       );
+  //       return Optional.of(user);
+  //   },
+  //   username,password);
+  // }
 
   @Override
   public Optional<AppUser> selectAppUserByUsername(String username) {
@@ -50,9 +52,4 @@ public class AppUserRepository implements AppUserDao {
     username);
   }
   
-
-  
-
-  
-
 }
