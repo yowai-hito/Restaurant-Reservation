@@ -35,3 +35,24 @@ jobs:
       uses: cicirello/jacoco-badge-generator@v2.6.1
       with:
         badges-directory: .github/badges
+        
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+    - name: Create badges dir if necessary
+      run: mkdir -p .github/badges
+    
+    - name: commit badge
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Actions"
+        git add .github/badges/jacoco.svg
+        git commit -m "Add/Update badge" 
+      
+
+    - name: Push badge commit
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.extract_branch.outputs.branch }}
