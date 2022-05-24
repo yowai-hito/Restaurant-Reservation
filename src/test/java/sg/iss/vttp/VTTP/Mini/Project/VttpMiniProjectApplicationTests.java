@@ -22,14 +22,9 @@ class VttpMiniProjectApplicationTests {
 	@Autowired
 	LocationService locationService;
 
-	@Autowired
-	ApplicationRepository appRepo;
-
-	@Autowired
-	AppUserRepository appUserRepo;
-
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
