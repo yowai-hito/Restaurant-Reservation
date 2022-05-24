@@ -24,7 +24,26 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 
   <div class="container pb-5 pt-5" style="border:1px solid; background-color: aliceblue;">
     <div class="text-center">
-      <h1> Welcome to <span th:text="${current.name}"></span>!</h1>
+       <h1> Welcome to <span th:text="${currentRest.name}"></span>!</h1>
+       <p th:text="${currentRest.description}"></p>
+    </div>
+    <div class="row justify-content-md-center mt-3 mb-3">
+      <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        th:src="${embedSrc}">
+      </iframe>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+      <form th:action="@{|/landing/user/make/${currentRest.name}/reserve|}">
+        <button type="submit" class="btn btn-outline-primary"> 
+          Make a reservation
+        </button>
+      </form>
     </div>
   </div>
 

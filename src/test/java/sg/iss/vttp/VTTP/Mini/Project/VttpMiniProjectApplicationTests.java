@@ -15,7 +15,6 @@ import sg.iss.vttp.VTTP.Mini.Project.Services.ApplicationService;
 import sg.iss.vttp.VTTP.Mini.Project.Services.LocationService;
 
 @SpringBootTest
-@WebMvcTest(TemplateController.class)
 class VttpMiniProjectApplicationTests {
 
 	@Autowired

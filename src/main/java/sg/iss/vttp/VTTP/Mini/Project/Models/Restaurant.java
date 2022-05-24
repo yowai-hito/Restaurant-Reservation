@@ -81,6 +81,11 @@ public class Restaurant implements Serializable {
     this.tableCount = this.tables.size();
   }
 
+  public String getLocationWithoutSpaces(){
+    String result = this.location.trim();
+    return result.replaceAll("\\s","+");
+  }
+
   @Override
   public String toString() {
     return "Restaurant [description=" + description + ", location=" + location + ", name=" + name + ", tableCount="
